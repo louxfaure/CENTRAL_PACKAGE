@@ -7,25 +7,25 @@ Supprime les entrées 'peer_reviewed','open_access'et'available'
 
 ## authentificationAutresInst : Personnalisation de l'écran d'authentification.
 Problématique consortiale. 
-Permet de générer des liens d'authentification pêrmettant de rediriger l'utilisateur vers la vue de son institution.
+Permet de générer des liens d'authentification permettant de rediriger l'utilisateur vers la vue de son institution.
 
-![Ecran d'authentification](prmLoginAfter/auth.png)  
+![Écran d'authentification](prmLoginAfter/auth.png)  
 
 [:link: prmLoginAfter/README.md](prmLoginAfter/README.md) 
  
 ## customBriefDisplay : Personnalisation de l'affichage des notices dans la liste des résultats
 
 ### Brief Display pour les ressources CDI
-Nous utilisons des champs locaux pour alimenter les 2ème & 3ème lignes du brief display (cf. [lds02](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02) et [lds01](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02)). Ces champs permettent de peronnaliser l'affichage en fonction des types de résultat. Ainsi les champs Auteurs & publisher initialement utilisés pour cet affichage ne remonte plus pour CDI. Ce correctif permet de récupérer les champs Pnx et les afficher dans l'affichage abrégé.
+Nous utilisons des champs locaux pour alimenter les 2ème & 3ème lignes du brief display (cf. [lds02](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02) et [lds01](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02)). Ces champs permettent de personnaliser l'affichage en fonction des types de résultat. Ainsi les champs Auteurs & publisher initialement utilisés pour cet affichage ne remontent plus pour CDI. Ce correctif permet de récupérer les champs Pnx et les afficher dans l'affichage abrégé.
 
 ### Doublement des champs locaux pour les notices fusionnées
 Lorsqu'une notice est fusionnée Primo conserve tous les champs locaux. Ainsi le champ lds01 que nous utilisons pour afficher l'adresse bibliographique de la publication est doublé. Ce module ne conserve que le champ construit à partir de la notice Unimarc.
 
 [:link: prmBriefResultAfter/README.md](prmBriefResultAfter/README.md)
 
-## customGalleryDisplay : Personnalisation de l'affichage des documents dans le collection discovery.
+## customGalleryDisplay : personnalisation de l'affichage des documents dans le collection discovery.
   
-Par défaut seuls les titres sont affichés sous les vignettes dans le collection discovery.Ajoute une ligne avec les auteurs et contributeurs (200$f) (cf. [lds02](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02)) et l'éditeur et la date d'édition (cf [lds01](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02)).
+Par défaut seuls les titres sont affichés sous les vignettes dans le collection discovery. Ajoute une ligne avec les auteurs et contributeurs (200$f) (cf. [lds02](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02)) et l'éditeur et la date d'édition (cf [lds01](https://rebub-sgbm.frama.wiki/primo:personnalisations_reseau#displaylds02)).
 
 [:link: prmGalleryItemAfter/README.md](prmGalleryItemAfter/README.md)
 
@@ -41,10 +41,10 @@ Problématique consortiale.
 
 [:link: prmFullViewServiceContainerAfter/README.md](prmFullViewServiceContainerAfter/README.md)
 
-## itemInLOan : Personnalisation de la liste des documents empruntés dans lec compte lecteur
+## itemInLOan : Personnalisation de la liste des documents empruntés dans le compte lecteur
 
 ### Empêche la réservation si l'emprunt date d'il y a moins de 7 jours (durée maximale de prolongation dans le réseau)
-Si le document est prolongeable et que le prêt est un prêt de plus de 7 jours (variable à adapter selon les besoins), le script regarde si le prêt à eu lieu il y a plus de  jours. Si ce n'est pas le cas, il indique quand le document pourra être prolongé.
+Si le document est prolongeable et que le prêt est un prêt de plus de 7 jours (variable à adapter selon les besoins), le script regarde si le prêt à eu lieu il y a plus de 7 jours. Si ce n'est pas le cas, il indique quand le document pourra être prolongé.
 
 ![Liste des prêts : compte lecteur](prmLoanAfter/readme_img1.png)
 
