@@ -6,6 +6,26 @@ import affDispo from './affDispo.html'
 class affDispoController {
   constructor($scope, $http, $element, $templateCache){
     console.log('---->affDispoController');
+    //Dans notre contexte consortail une notice supprimée est toujours considérée come disponible dans une autre insr=titution
+    //Car elle possède toujours une code "delcategory" pour la zone réseau.
+    //Si un résultat n'a qu'un "delcategory" on indique que le document est indisponble pour toutes les institutions 
+    if (this.parentCtrl.result.delivery.availability.includes("does_not_exist_in_maininstitution")){
+      console.log(this.parentCtrl.result.pnx.delivery.delcategory.length );
+      if (this.parentCtrl.result.pnx.delivery.delcategory.length == 1){
+        this.parentCtrl.result.delivery.availability = ["unavailable_in_all_institutions"];
+      }
+    }
+    //Lorsqu'undocument électronique local est acccessible en ligne pour une autre institution que celle de la vue
+    //Primo indique apr défaut que le documment est disponible. On modifie ceta ffichage pour indiquer
+    // qu'il est disponible en ligne pour une autre institution
+    if (this.parentCtrl.result.delivery.availability.includes('not_restricted')){
+      var institution = this.parentCtrl.configurationUtil.vid.replace(/^(33PUDB_.*?)_.*/, '$1');
+      if (! this.parentCtrl.result.pnx.delivery.institution.includes(institution)){
+        this.parentCtrl.result.delivery.availability = ["does_not_exist_in_maininstitution_local_eressource_33PUDB"];
+      }
+      console.log(this.parentCtrl.result.pnx.delivery.institution)
+    }
+
     if (this.parentCtrl.result.pnx.control.recordid[0].startsWith('dedup')){
       // console.log(this.parentCtrl.result.pnx.display.title);
       // console.log(this.parentCtrl.result.delivery);
