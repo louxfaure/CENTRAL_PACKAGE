@@ -16,14 +16,15 @@ class affDispoController {
       }
     }
     //Lorsqu'undocument électronique local est acccessible en ligne pour une autre institution que celle de la vue
-    //Primo indique apr défaut que le documment est disponible. On modifie ceta ffichage pour indiquer
+    //Primo indique par défaut que le documment est disponible. On modifie ceta ffichage pour indiquer
     // qu'il est disponible en ligne pour une autre institution
     if (this.parentCtrl.result.delivery.availability.includes('not_restricted')){
       var institution = this.parentCtrl.configurationUtil.vid.replace(/^(33PUDB_.*?)_.*/, '$1');
-      if (! this.parentCtrl.result.pnx.delivery.institution.includes(institution)){
-        this.parentCtrl.result.delivery.availability = ["does_not_exist_in_maininstitution_local_eressource_33PUDB"];
-      }
-      console.log(this.parentCtrl.result.pnx.delivery.institution)
+      if (typeof this.parentCtrl.result.pnx.delivery.institution !== 'undefined') {
+        if (! this.parentCtrl.result.pnx.delivery.institution.includes(institution)){
+          this.parentCtrl.result.delivery.availability = ["does_not_exist_in_maininstitution_local_eressource_33PUDB"];
+        }
+    }
     }
 
     if (this.parentCtrl.result.pnx.control.recordid[0].startsWith('dedup')){
