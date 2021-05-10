@@ -60,20 +60,19 @@ class customBriefDisplayController {
         }
         console.log(this.parentCtrl.otherLines);
         /****************************************************************************** */
-        /* Empêche l'affichage des deux champs lds01 dans le cas d'une notice fusionnée */
+        /* Empêche l'affichage des deux champs lds01 det lds02 ans le cas d'une notice fusionnée */
         /****************************************************************************** */
         /*Lorsqu'une notice est fusionnée Primo conserve tous les champs locaux. Ainsi le*/
-        /* champ lds01 que nous utilisons pour afficher l'adresse bibliographique de la  */
+        /* champ lds01 & lds02 que nous utilisons pour afficher l'adresse bibliographique de la  */
         /*publication est doublé. Ce module ne conserve que le champ construit à partir  */
         /*de la notice Unimarc.*/
         //Test sur la notice fusionnée
         if (this.parentCtrl.item.context == "L" && this.parentCtrl.item.pnx.control.recordid[0].startsWith('dedup')) {
             console.log('dedup');
             var firstLinetext = [];
-            var auteur = this.parentCtrl.item.pnx.display.lds02;
             var adresse = this.parentCtrl.item.pnx.display.lds01[0];
              /*Seconde ligne on envoie au composant la zone de l'adresse biblio*/
-            console.log(adresse);
+            console.log(auteur);
             var hSecondValue = {
                 clazz: "media-publisher",
                 codes: [""],
@@ -87,18 +86,21 @@ class customBriefDisplayController {
             };
             firstLinetext.unshift(hSecondLine);
             /*Première ligne on envoie au composant les auteurs*/
-            var hFirstValue = {
-                clazz: "media-creator",
-                codes: [""],
-                key: "creator",
-                text: auteur,
-                values: auteur
-            };
-            var hFirstLine = {
-                values: [hFirstValue],
-                delimiter: " ; "
-            };
-            firstLinetext.unshift(hFirstLine);
+            if(typeof this.parentCtrl.item.pnx.display.lds02 != "undefined"){
+                var auteur = this.parentCtrl.item.pnx.display.lds02[0];
+                var hFirstValue = {
+                    clazz: "media-creator",
+                    codes: [""],
+                    key: "creator",
+                    text: [auteur],
+                    values: [auteur]
+                };
+                var hFirstLine = {
+                    values: [hFirstValue],
+                    delimiter: " ; "
+                };
+                firstLinetext.unshift(hFirstLine);
+            }
             this.parentCtrl.otherLines = firstLinetext;
         }
 

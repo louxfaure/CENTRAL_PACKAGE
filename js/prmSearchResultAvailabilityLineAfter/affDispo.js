@@ -6,33 +6,43 @@ import affDispo from './affDispo.html'
 class affDispoController {
   constructor($scope, $http, $element, $templateCache){
     console.log('---->affDispoController');
-    //Dans notre contexte consortail une notice supprimée est toujours considérée come disponible dans une autre insr=titution
+    //Dans notre contexte consortail une notice supprimée est toujours considérée come disponible dans une autre institution
     //Car elle possède toujours une code "delcategory" pour la zone réseau.
     //Si un résultat n'a qu'un "delcategory" on indique que le document est indisponble pour toutes les institutions 
     if (this.parentCtrl.result.delivery.availability.includes("does_not_exist_in_maininstitution")){
-      console.log(this.parentCtrl.result.pnx.delivery.delcategory.length );
       if (this.parentCtrl.result.pnx.delivery.delcategory.length == 1){
         this.parentCtrl.result.delivery.availability = ["unavailable_in_all_institutions"];
       }
     }
+
+
     //Lorsqu'undocument électronique local est acccessible en ligne pour une autre institution que celle de la vue
-    //Primo indique par défaut que le documment est disponible. On modifie ceta ffichage pour indiquer
+    //Primo indique par défaut que le documment est disponible. On modifie cet affichage pour indiquer
     // qu'il est disponible en ligne pour une autre institution
+    // On prend la liste des identifaints des notices marc21
+    var recordids = []
+    for (var i = 0; i < this.parentCtrl.result.pnx.control.sourceid.length; i++) {
+      if(this.parentCtrl.result.pnx.control.sourceid[i].startsWith('$$V33PUDB_Alma_Marc')){
+        recordids.push(this.parentCtrl.result.pnx.control.sourceid[i].replace(/^\$\$V33PUDB_Alma_Marc\$\$O(.*)/, '$1'))
+      }
+    }
     if (this.parentCtrl.result.delivery.availability.includes('not_restricted')){
       var institution = this.parentCtrl.configurationUtil.vid.replace(/^(33PUDB_.*?)_.*/, '$1');
       if (typeof this.parentCtrl.result.pnx.delivery.institution !== 'undefined') {
-        if (! this.parentCtrl.result.pnx.delivery.institution.includes(institution)){
-          this.parentCtrl.result.delivery.availability = ["does_not_exist_in_maininstitution_local_eressource_33PUDB"];
-        }
+        this.parentCtrl.result.delivery.availability = ["does_not_exist_in_maininstitution_local_eressource_33PUDB"];
+        for (var i = 0; i <= recordids.length; i++) {
+          var code_del = "$$V" + institution + "$$O" + recordids[i]
+          if (this.parentCtrl.result.pnx.delivery.institution.includes(code_del)){
+            this.parentCtrl.result.delivery.availability = ["not_restricted"];
+            break;
+          }
+      }
     }
-    }
+    }    
 
     if (this.parentCtrl.result.pnx.control.recordid[0].startsWith('dedup')){
-      // console.log(this.parentCtrl.result.pnx.display.title);
-      // console.log(this.parentCtrl.result.delivery);
       if (this.parentCtrl.result.delivery.deliveryCategory.length == 1){
-        if (typeof this.parentCtrl.result.delivery.GetIt2 !== 'undefined') {
-          console.log('---->affDispoController : recalcule de la disponibilité');
+        if (typeof this.parentCtrl.result.delivery.GetIt2 !== 'undefined' && typeof this.parentCtrl.result.delivery.holding.length > 0) {
           var availability = getAvailabilityStatus(this.parentCtrl.result.delivery.holding);
           this.locations = [];
           this.locations.push({
@@ -42,12 +52,11 @@ class affDispoController {
             useLinkIcon: true,
             // outboundLink: illLink(pnx),
           })
-      }
-      console.log(this.locations);
-      }
+          console.log('---->affDispoController : disponibilité recalculée');
+      }      }
     }
+    //Permet de calculer à partir des holdings la disponibilité générique au niveau réseau 
     function getAvailabilityStatus(holding){
-      console.log(holding);
       if (typeof holding == 'undefined' || holding == null) {
         return "unavailable_in_all_institutions";
       }
@@ -69,7 +78,6 @@ class affDispoController {
         }
       }
     }
-    console.log(this);
   }
 }
 affDispoController.$inject = ['$scope', '$http', '$element', '$templateCache' ]
