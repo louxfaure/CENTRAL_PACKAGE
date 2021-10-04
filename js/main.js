@@ -38,9 +38,9 @@ if (app){
     //Ajoute un pied de page avec les logos des autres institutions membres du réseau et le lien vers leurs catalogues
     app.component('prmExploreFooterAfter',logosInstsConfig);
     //Clique et collecte : Ajoute un bouton panier dans le menu principale pour les utilisateurs authentifiés
-    app.component('prmUserAreaExpandableAfter',panierConfig);
+    // app.component('prmUserAreaExpandableAfter',panierConfig);
     //Clique et collecte : Ajoute un  lien vers l'application de prise de rdv dans l'onglet réservation du compte lecteur
-    app.component('prmRequestsAfter',panierCompteLecteurConfig);
+    // app.component('prmRequestsAfter',panierCompteLecteurConfig);
     //Collection discovery : modifie les liens vers les sélections dans l'affichage détaillé pour afficher la sélection dans la vue de l'institution propriétaire
     app.component('prmCollectionNavigationBreadcrumbsItemAfter',changeLinkToCollectionDiscoveryConfig);
     

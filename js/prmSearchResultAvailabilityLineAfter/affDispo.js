@@ -26,6 +26,8 @@ class affDispoController {
         recordids.push(this.parentCtrl.result.pnx.control.sourceid[i].replace(/^\$\$V33PUDB_Alma_Marc\$\$O(.*)/, '$1'))
       }
     }
+    console.log("Dispo :");
+    console.log(this.parentCtrl.result.pnx.delivery.institution);
     if (this.parentCtrl.result.delivery.availability.includes('not_restricted')){
       var institution = this.parentCtrl.configurationUtil.vid.replace(/^(33PUDB_.*?)_.*/, '$1');
       if (typeof this.parentCtrl.result.pnx.delivery.institution !== 'undefined') {
@@ -36,14 +38,19 @@ class affDispoController {
             this.parentCtrl.result.delivery.availability = ["not_restricted"];
             break;
           }
+          if (this.parentCtrl.result.pnx.delivery.institution.includes(institution)){
+            this.parentCtrl.result.delivery.availability = ["not_restricted"];
+            break;
+          }
       }
     }
     }    
 
     if (this.parentCtrl.result.pnx.control.recordid[0].startsWith('dedup')){
       if (this.parentCtrl.result.delivery.deliveryCategory.length == 1){
-        if (typeof this.parentCtrl.result.delivery.GetIt2 !== 'undefined' && typeof this.parentCtrl.result.delivery.holding.length > 0) {
+        if (typeof this.parentCtrl.result.delivery.GetIt2 !== 'undefined' && this.parentCtrl.result.delivery.holding.length > 0) {
           var availability = getAvailabilityStatus(this.parentCtrl.result.delivery.holding);
+
           this.locations = [];
           this.locations.push({
             availability: availability,
@@ -53,6 +60,7 @@ class affDispoController {
             // outboundLink: illLink(pnx),
           })
           console.log('---->affDispoController : disponibilité recalculée');
+          console.log(availability);
       }      }
     }
     //Permet de calculer à partir des holdings la disponibilité générique au niveau réseau 
