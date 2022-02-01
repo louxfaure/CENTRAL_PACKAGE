@@ -1,7 +1,15 @@
 class customBriefDisplayController {
     constructor() {
         console.log('---->33PUDB customBriefDisplayController');
-        console.log(this);
+        console.log('---->33PUDB debug FRBR');
+        console.log(this.parentCtrl.item.pnx.display.title);
+        console.log(this.parentCtrl.item.pnx.control.recordid);
+        console.log(this.parentCtrl.item.pnx.frbr.k3);
+        console.log(this.parentCtrl.item.pnx.frbr.k1);
+        console.log(this.parentCtrl.item.pnx.frbr.k2);
+        console.log(this.parentCtrl.item.pnx.search.isbn);
+        console.log(this.parentCtrl.item.pnx.search.addsrcrecordid);
+        console.log(this.parentCtrl.item.pnx.display.publisher);
         /***********************************/
         /* Mise en forme des résultats CD */
         /********************************* */
@@ -58,7 +66,7 @@ class customBriefDisplayController {
             firstLinetext.unshift(hFirstLine);
             this.parentCtrl.otherLines = firstLinetext;
         }
-        console.log(this.parentCtrl.otherLines);
+        // console.log(this.parentCtrl.otherLines);
         /****************************************************************************** */
         /* Empêche l'affichage des deux champs lds01 det lds02 ans le cas d'une notice fusionnée */
         /****************************************************************************** */
@@ -68,11 +76,11 @@ class customBriefDisplayController {
         /*de la notice Unimarc.*/
         //Test sur la notice fusionnée
         if (this.parentCtrl.item.context == "L" && this.parentCtrl.item.pnx.control.recordid[0].startsWith('dedup')) {
-            console.log('dedup');
+            // console.log('dedup');
             var firstLinetext = [];
             var adresse = this.parentCtrl.item.pnx.display.lds01[0];
              /*Seconde ligne on envoie au composant la zone de l'adresse biblio*/
-            console.log(auteur);
+            // console.log(auteur);
             var hSecondValue = {
                 clazz: "media-publisher",
                 codes: [""],

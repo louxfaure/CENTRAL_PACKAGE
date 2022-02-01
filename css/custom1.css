@@ -285,10 +285,13 @@ prm-full-view .send-actions-content-item {
 #citationTrails {
   order: 6;
 }
+#moreFromTheSameCourse{
+  order: 7;
+}
 #virtualBrowse {
-  order: 7; }
+  order: 8; }
 #tags {
-  order: 8;
+  order: 9;
 }
 
 /*33PUDB_AFA Empêche l'affichage du mesage "Aucun document à afficher pour cet emplacement. Veuillez vous identifier ci-dessus pour voir les options de demande disponibles."
