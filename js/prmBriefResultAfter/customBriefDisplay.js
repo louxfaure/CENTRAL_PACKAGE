@@ -1,16 +1,32 @@
 class customBriefDisplayController {
     constructor() {
-        console.log('---->33PUDB customBriefDisplayController');
-        console.log('---->33PUDB debug FRBR');
-        console.log(this.parentCtrl.item.pnx.display.title);
-        console.log(this.parentCtrl.item.pnx.control.recordid);
-        console.log(this.parentCtrl.item.pnx.frbr.k3);
-        console.log(this.parentCtrl.item.pnx.frbr.k1);
-        console.log(this.parentCtrl.item.pnx.frbr.k2);
-        console.log(this.parentCtrl.item.pnx.search.isbn);
-        console.log(this.parentCtrl.item.pnx.search.addsrcrecordid);
-        console.log(this.parentCtrl.item.pnx.display.publisher);
-        /***********************************/
+        // console.log('---->33PUDB customBriefDisplayController');
+        // if (typeof this.parentCtrl.briefResultService.$state.params.facet !== 'undefined') {        
+        //     if (this.parentCtrl.briefResultService.$state.params.facet.startsWith('frbrgroupid')) {
+        //         console.log('---->33PUDB debug FRBR');
+        //         console.log(this.parentCtrl.item.pnx.display.title);
+        //         console.log(this.parentCtrl.item.pnx.control.recordid);
+        //         if (typeof this.parentCtrl.item.pnx.frbr.k3 !== 'undefined') {
+        //             console.log(this.parentCtrl.item.pnx.frbr.k3);
+        //         }
+        //         if (typeof this.parentCtrl.item.pnx.frbr.k1 !== 'undefined') {
+        //             console.log(this.parentCtrl.item.pnx.frbr.k1);
+        //         }
+        //         if (typeof this.parentCtrl.item.pnx.frbr.k2 !== 'undefined') {
+        //             console.log(this.parentCtrl.item.pnx.frbr.k2);
+        //         }
+        //         if (typeof this.parentCtrl.item.pnx.search.isbn !== 'undefined') {
+        //             console.log(this.parentCtrl.item.pnx.search.isbn);
+        //         }
+        //         if (typeof this.parentCtrl.item.pnx.search.addsrcrecordid !== 'undefined') {
+        //             console.log(this.parentCtrl.item.pnx.search.addsrcrecordid);
+        //         }
+        //         if (typeof this.parentCtrl.item.pnx.display.publisher !== 'undefined') {
+        //             console.log(this.parentCtrl.item.pnx.display.publisher);
+        //         }
+        //     }
+        // }
+        // /***********************************/
         /* Mise en forme des résultats CD */
         /********************************* */
         //Nous utilisons des champs locaux pour alimenter les 2ème & 3ème lignes du brief display. 
