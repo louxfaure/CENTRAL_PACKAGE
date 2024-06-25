@@ -1,0 +1,588 @@
+@charset "UTF-8";
+
+/*
+##     ## ######## ##    ## ##     ## 
+###   ### ##       ###   ## ##     ## 
+#### #### ##       ####  ## ##     ## 
+## ### ## ######   ## ## ## ##     ## 
+##     ## ##       ##  #### ##     ## 
+##     ## ##       ##   ### ##     ## 
+##     ## ######## ##    ##  ####### 
+*/
+
+/*Compte lecteur*/
+/*33PUDB_NETWORK_CL disparition amendes+frais, modification infos personnelles*/
+/*############################################################################*/
+#personalDetails, prm-account-links, md-tab-item:nth-child(4),prm-fines-overview{
+  display: none;
+}
+/*augmentation taille texte dans onglet*/
+md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item:not([disabled]){
+  min-width: 8em;
+}
+/*33PUDB_NETWORK_CL_Adrese_compte_lecteur Empêche le chevauchement des lignes*/
+/*###########################################################################*/
+prm-personal-info md-input-container.md-input-has-value label:not(.md-no-float) {
+  opacity: .8;
+  transform: translate3d(0,15px,0) scale(0.85);
+}
+ /*desactivation border sur le bouton du choix du type d'authentification*/
+
+ md-dialog-content .disable-hover .md-button:hover, md-dialog-content .disable-hover button:hover, md-dialog-content .disable-hover .md-button:focus, md-dialog-content .disable-hover button:focus {
+  box-shadow: unset;
+}
+/*33PUDB_NETWORK_AFA_Authentification autres institutions*/
+/*#######################################################*/
+prm-login.layout-row  {
+    flex-direction: column;
+}
+#REBUB-Authentification-Ext{
+    justify-content: space-between;
+    height: 100px;
+}
+.rebub-logo{
+    width: 100%;
+    margin-top: auto;
+}
+#INP_Logo{
+  max-height: 65px;
+}
+@media screen and (max-width: 960px) {
+    #REBUB-Authentification-Ext{
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+}
+    prm-login-after{
+        height:100px;
+    }
+    .rebub-authentification-externe{
+        margin:auto;
+        margin-top: 20px;
+    }
+    .rebub-logo{
+    width: 90%;
+}
+}
+/* zone avec les logos pour l'authentification inter institutions */
+#REBUB-Authentification-Ext {
+  background-color: white;
+}
+/*END 33PUDB_NETWORK_AFA_Authentification autres institution*/
+/*
+/*Disponinilité dans les autres institutions*/
+md-list-item.rebub-autres-abos{
+  flex-wrap: wrap;
+}
+rebub-autres-abos{
+  flex-basis: 100%;
+}
+/*########  ########  #### ######## ########    ########  ####  ######  ########  ##          ###    ##    ## 
+##     ## ##     ##  ##  ##       ##          ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##  
+##     ## ##     ##  ##  ##       ##          ##     ##  ##  ##       ##     ## ##        ##   ##    ####   
+########  ########   ##  ######   ######      ##     ##  ##   ######  ########  ##       ##     ##    ##    
+##     ## ##   ##    ##  ##       ##          ##     ##  ##        ## ##        ##       #########    ##    
+##     ## ##    ##   ##  ##       ##          ##     ##  ##  ##    ## ##        ##       ##     ##    ##    
+########  ##     ## #### ######## ##          ########  ####  ######  ##        ######## ##     ##    ##
+*/
+/*33PUDB_NETWORK_AFA_FACETTES : Masque le titre des facettes "Affiner vos résultats"*/
+/*##################################################################################*/
+prm-facet h2[translate="nui.facets.title"]{
+  display: none;
+}
+/*33PUDB Citation trail
+#########################
+/*33PUDB_NETWORK_CL_effacement liens dans citation trails*/
+prm-times-cited{
+  display: none;
+}
+prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.Find"], prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.sources"],prm-citation-trails-fullview-link span[translate="nui.citation_trail.link.or"]{
+  display: none;
+}
+/*33PUDB_NETWORK_CL_TRIE Déplace le trie au dessus des facettes*/
+/*##############################################################*/
+@media screen and (min-width: 960px) {
+  prm-facet .primo-scrollbar {
+	overflow-x: visible !important;
+	}
+  #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row  {
+    margin-left: 315%;
+    position: absolute;
+    /* margin-top: -27px; */
+    z-index:12;
+  }
+  #facets > prm-facet > div > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row > div > h3 {
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+  prm-search-result-sort-by {
+    padding-bottom: 6px;
+    font-size: 14px;
+  }
+  prm-facet > div.primo-scrollbar.is-stuck > div > div.sidebar-section.margin-bottom-small.compensate-padding-left.layout-row {
+    display:none;
+  }
+}
+/*END 33PUDB_NETWORK_CL_TRIE*/
+/*Masquage du direct link vers la version html*/
+prm-quick-link prm-icon[icon-definition="html-link"], prm-quick-link prm-icon[icon-definition="html-link"] + span, prm-quick-link prm-icon[icon-definition="html-link"] + span + prm-icon
+,prm-quick-link span[translate="fulldisplay.HTML"] + prm-icon + prm-icon[icon-definition="chevron-right"], prm-quick-link prm-icon[icon-definition="html-link"] {
+  display: none;
+}
+/*+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
+ |c|O|L|L|E|C|T|I|O|N| |D|I|S|C|O|V|E|R|Y|
+ +-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+*/
+ div.infoEx {
+  font-size: smaller;
+}
+
+.is-gallery-view div.infoEx {
+  display: none;
+}
+
+/*
+######## ##     ## ##       ##          ########  ####  ######  ########  ##          ###    ##    ## 
+##       ##     ## ##       ##          ##     ##  ##  ##    ## ##     ## ##         ## ##    ##  ##  
+##       ##     ## ##       ##          ##     ##  ##  ##       ##     ## ##        ##   ##    ####   
+######   ##     ## ##       ##          ##     ##  ##   ######  ########  ##       ##     ##    ##    
+##       ##     ## ##       ##          ##     ##  ##        ## ##        ##       #########    ##    
+##       ##     ## ##       ##          ##     ##  ##  ##    ## ##        ##       ##     ##    ##    
+##        #######  ######## ########    ########  ####  ######  ##        ######## ##     ##    ## 
+*/
+
+/*33PUDB Suppression des TAGS*/
+/*---------------------------*/
+/*Menu*/
+[aria-label="Tags"],[aria-label="Etiquetas"],[aria-label="nui.mainmenu.label.tags"]{
+  display:none;
+}
+/*Sections*/
+#tags{
+  display:none;
+}
+/*33PUDB Sent To fixé en bas de page*/
+/*----------------------------------*/
+
+
+/* #action_list, #action_list .section-head {
+  margin: 0;
+}
+
+#action_list .section-head {
+  display: none;
+}
+
+#action_list prm-action-list {
+  position: fixed;
+  bottom: 0;
+  max-width: 68%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 98;
+  background-color: gainsboro;
+  box-shadow: 0 1px 0 0 rgba(58,58,58,.1),0 1px 5px 0 rgba(58,58,58,.2);
+}
+#action_list prm-action-list .container-nav-controls {
+  z-index: 100;
+}
+#action_list prm-action-list > md-nav-bar .md-nav-item .md-button {
+  line-height: 16px;
+}
+#action_list prm-action-list > md-nav-bar .md-nav-item .md-button md-icon svg {
+  height: 110%;
+  width: 110%;
+}
+#action_list prm-action-list .md-button.accessible-close {
+  width: inherit;
+  height: inherit;
+  left: inherit;
+  overflow: inherit;
+  position: inherit;
+  margin: 0.5em 0 0.5em 0 !important;
+}
+prm-full-view .send-actions-content-item {
+  padding: 0;
+}
+#action_list prm-action-list .send-actions-content-item div.flex {
+  max-width: 500px;
+}
+@media screen and (max-width: 959px) {
+  #action_list prm-action-list {
+      max-width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform:none;
+  }
+  #action_list prm-action-list > md-nav-bar .md-button {
+      line-height: 14px;
+  }
+  #action_list prm-action-list > md-nav-bar .md-nav-item .md-button md-icon svg {
+      height: 90%;
+      width: 90%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  prm-action-list > md-nav-bar .md-nav-item {
+      max-width: 65px;
+  }
+  #action_list prm-action-list {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform:none;
+  }
+  #action_list prm-action-list > md-nav-bar .md-button {
+      min-width: 50px;
+      padding: 0.5em;
+  }
+} */
+
+/*Changement de l'ordre des rubriques*/
+/*###################################*/
+.full-view-section {
+  margin-top: 1em;
+}
+.full-view-inner-container{
+  padding-bottom: 10em;
+  display: flex;
+  flex-direction: column;
+ }
+/*Menu de navigation*/
+[aria-label="Notice abrégée"], [aria-label="Top"], [aria-label="Arriba"] {
+  order: 0 !important; 
+  display:none;
+}
+[aria-label="En ligne"], [aria-label="View it"], [aria-label="Visualizarlo"] {
+  order: 0 !important;
+}
+[aria-label="En rayon"], [aria-label="Get it"], [aria-label="Obténgalo"] {
+  order: 1 !important; 
+}
+[aria-label="Notice détaillée"],[aria-label="Details"],[aria-label="Detalles"] {
+  order: 2 !important; 
+}
+[aria-label="Envoyer vers"], [aria-label="Send to"], [aria-label="Enviar a"] {
+  order: 3 !important; 
+}
+[aria-label="Liens"],[aria-label="Links"],[aria-label="Enlaces"] {
+  order: 4 !important;
+   }
+[aria-label="Citations"] {
+  order: 6 !important; }
+[aria-label="Etagère virtuelle"],[aria-label="Virtual browse"],[aria-label="Navegación virtual"] {
+  order: 7 !important; }
+[aria-label="Tags"], [aria-label="Etiquetas"] {
+  order: 8 !important;
+ display: none;
+}
+/*Rubriques*/
+#getit_link1_0, #getit_link1 {
+  order: 1;
+   }
+#getit_link2_0, #getit_link2 {
+    order: 2;
+  }
+#details {
+  order: 3; 
+}
+#action_list{
+  order: 4;
+}
+#links {
+  order: 5;
+   }
+#citationTrails {
+  order: 6;
+}
+#moreFromTheSameCourse{
+  order: 7;
+}
+#virtualBrowse {
+  order: 8; }
+#tags {
+  order: 9;
+}
+
+/* réduction de la marge entre les rubriques*/
+.full-view-section{
+  margin-top: 1em;
+}
+
+.full-view-section .section-title{
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/*33PUDB_AFA Empêche l'affichage du mesage "Aucun document à afficher pour cet emplacement. Veuillez vous identifier ci-dessus pour voir les options de demande disponibles."
+Quand aps de résultats Alma*/
+.padding-left-medium[ng-if="$ctrl.currLoc.locationNoItems"] {
+  display: none;
+}
+
+/* #Footer */
+prm-explore-footer-after .footer {
+  width:100%;
+  margin:0 auto;
+  background:#eef0eb;
+  padding-top:10px;
+  padding-bottom:35px;
+  z-index: 10;
+  position: relative;
+}
+prm-explore-footer-after .footer .footer-inner {
+  padding:0 25px;
+  text-align:center;
+}
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement .footer-logo {
+  /* display:inline-block; */
+  margin-right: 20px;
+  margin-top: 10px;
+
+}
+prm-explore-footer-after .footer .footer-inner .footer-logo-alignement .footer-logo img {
+  max-width: 200px;
+  max-height: 200px;
+
+}
+prm-explore-footer-after .footer .footer-inner .footer-instruction {
+  font-family: 'Cronos Light';
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+prm-user-area-expandable-after{
+  display: flex;
+}
+
+prm-user-area-expandable-after #panier-covid{
+  margin: auto;
+}
+
+/*Sélections*/
+prm-collection-gallery-header h1{
+  text-transform: uppercase;
+}
+
+/* Messages d'alertes */
+/* Bug fixing: after adding the announcement bar the overlays (like when you click on the more (...) button) don't
+show up properly and the following code fixes it */
+
+/* md-backdrop, .md-dialog-container {
+  position: fixed; } */
+ 
+/* md-toast {
+  z-index: 79; 
+  @media screen and (min-width: 1920px) {
+    md-toast.page-notification .md-toast-content {
+      max-width: 999px;
+  }
+}
+  } */
+/*Note fusion notices*/
+  div .pudb-dedup-advice{
+    padding : 1rem 1rem;
+    margin-bottom: 1rem;
+    border : 1px solid #a3cfbb;
+    border-radius: 0.375rem;;
+    color:#146c43;
+    background-color: #d1e7dd;;
+
+  }
+
+/* TOC ajout 20230125 */
+.toc1, .toc1_alone {
+  margin-top: 10px;
+}
+
+.toc1,
+.toc1_alone,
+.toc2,
+.toc3,
+.toc4,
+.toc5,
+.toc6,
+.toc7,
+.toc8 {
+  display: block;
+}
+
+.vol {
+  text-transform: capitalize;
+}
+
+.toc,
+.toc1 {
+  font-weight: bold;
+}
+
+.toc2 {
+  padding-left: 15px;
+}
+
+.toc3 {
+  padding-left: 30px;
+}
+
+/*On continue identation pour reso>1280px*/
+@media screen and (min-width: 1280px) {
+  .toc4 {
+    padding-left: 45px;
+  }
+
+  .toc5 {
+    padding-left: 60px;
+  }
+
+  .toc6 {
+    padding-left: 75px;
+  }
+
+  .toc7 {
+    padding-left: 90px;
+  }
+
+  .toc8 {
+    padding-left: 105px;
+  }
+}
+
+/*sous 1280px les tocs de niveau 4 à 8 ont la même identation*/
+@media screen and (max-width: 1279px) {
+
+  .toc4,
+  .toc5,
+  .toc6,
+  .toc7,
+  .toc8 {
+    padding-left: 45px;
+  }
+}
+
+/* END TOC */
+
+/* bouton présent dans un autre établissement */
+/* présent dans un autre établissement elec + papier */
+
+prm-alma-more-inst h3.medium-uppercase-bold,
+prm-full-view-service-container-after h3.medium-uppercase-bold {
+  font-weight: 600;
+  font-size: 18px !important;
+  text-transform: none !important;
+  padding: 10px
+}
+
+prm-alma-more-inst md-tabs md-content,
+prm-alma-more-inst md-tabs md-content.md-primoExplore-theme,
+prm-full-view-service-container-after .md-primoExplore-theme {
+  background-color: #f3f3f3;
+}
+
+prm-alma-more-inst md-tab-content .md-button.neutralized-button,
+md-tabs.tabs-as-app .back-button,
+prm-full-view-service-container-after .md-button.neutralized-button {
+  /*padding:10px;*/
+  display: flex;
+  /*height: 50px;*/
+  padding: 0;
+  background: #fff;
+  border: 1px solid #c3c3c3;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 5px
+}
+
+md-tab-content .md-button.neutralized-button div.md-list-item-text,
+span[translate="nui.getit_other.back"],
+prm-full-view-service-container-after .md-button.neutralized-button .md-list-item-text {
+  padding: 5px 15px;
+  /*color: #fff;*/
+  height: 100%;
+
+}
+
+prm-alma-more-inst md-tab-content .md-button.neutralized-button prm-icon,
+md-tabs.tabs-as-app .back-button prm-icon,
+prm-full-view-service-container-after .md-button.neutralized-button prm-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px;
+  color: #fff !important;
+  height: 100% !important;
+  font-size: 1.5em;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* PCO 06/2024 personnalisations de la recherche avancée */
+
+prm-advanced-search .collapsed-button {
+  text-transform: uppercase;
+  background-color: #f3f3f3;
+  color: #fff;
+  border-radius: 4px;
+  left: 200px;
+  right: auto;
+  margin-top: -2px;
+  margin-left: 5px; 
+}
+.md-button:hover:not([disabled]) {
+  background-color: #E1E1E1;
+}
+.md-button:focus:not([disabled]) {
+  background-color: #E1E1E1;
+}
+
+prm-advanced-search .search-string md-select span {
+    text-decoration: underline;
+    color: #026db9;
+}
+
+prm-search-bar .advanced-search-wrapper prm-advanced-search .search-string .string-field.bold-text input {
+    padding: 5px 60px 5px 8px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    background-image: url('https://hollis.harvard.edu/primo-explore/custom/HVD2/img/pencil.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px right 4px;
+    background-size: 20px;
+    background-color: #fbfbfb;
+    border-radius: 4px;
+} 
+
+prm-search-bar .advanced-search-wrapper .search-string .string-field {
+  padding: 0 5px;
+}
+
+prm-search-bar .advanced-search-wrapper .search-string .string-field.tiny-bold.uppercase {
+  font-weight: bolder;
+  font-size: 15px;
+}
+prm-advanced-search .complex-rows {
+  border-bottom: none;
+}
+
+/*[AFA 20240624] Message d'information dans le full display pour les notices fusionnées*/
+.Rebub_Alerte_Fusion {
+  height : unset;
+  display: block;
+}

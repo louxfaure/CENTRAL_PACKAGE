@@ -1,0 +1,13 @@
+<div class="footer" ng-if="$ctrl.displayFooter">
+    <div class="footer-inner">
+        <div class="footer-instruction">
+            {{$ctrl.message}}
+        </div>
+        <div class="footer-logo-alignement">
+            <a ng-repeat="almaInst in $ctrl.institutionsList" class="footer-logo"
+                href="{{$ctrl.institutionsUrl[almaInst]}}" title="{{almaInst|translate}}" target="_blank">
+                <img src="/primo-explore/custom/CENTRAL_PACKAGE/img/Logos/{{almaInst}}_Logo.png" />
+            </a>
+        </div>
+    </div>
+</div>
